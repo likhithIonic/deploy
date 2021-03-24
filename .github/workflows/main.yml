@@ -26,11 +26,9 @@ jobs:
       #     version: 1.1.0
       #     # build-number: ${{github.run_number}}
       #     # project-path: ./ios #Example for React Native project
-    - name: update
-      run: |
-        git add .
-        git commit -m "bump version"
-        git push origin HEAD
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: bump version
 
   # build-ios-appstore-test:
   #   runs-on: ubuntu-latest
