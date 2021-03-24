@@ -27,13 +27,13 @@ jobs:
       - name: update
         run: |
           VERSION_NUMBER=1.0.2
-          INFO_PLIST="ios/App/App/Info"
-          INFO_PLIST_EXT="${INFO_PLIST}.plist"
+          info_plist="ios/App/App/Info"
+          info_plist_ext="${INFO_PLIST}.plist"
           BUILD_NUMBER="$(defaults read $INFO_PLIST CFBundleVersion)"
           ((BUILD_NUMBER+=1))
 
-          defaults write $INFO_PLIST CFBundleShortVersionString $VERSION_NUMBER
-          defaults write $INFO_PLIST CFBundleVersion $BUILD_NUMBER
+          defaults write $info_plist CFBundleShortVersionString $VERSION_NUMBER
+          defaults write $info_plist CFBundleVersion $BUILD_NUMBER
           plutil -convert xml1 $INFO_PLIST_EXT
 
           echo "Released $VERSION_NUMBER"
