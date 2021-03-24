@@ -16,9 +16,11 @@ jobs:
   increment-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/checkout@master
+    - name: Test
+      uses: skx/github-action-tester@master
+      with:
+        script: .github/xcode-version-increment.sh
       # - uses: yanamura/ios-bump-version@v1
       #   with:
       #     version: 1.1.0
@@ -26,18 +28,6 @@ jobs:
       #     # project-path: ./ios #Example for React Native project
       - name: update
         run: |
-          version_number=1.0.2
-          info_plist="ios/App/App/Info"
-          info_plist_ext="${info_plist}.plist"
-          build_number="$(defaults read $INFO_PLIST CFBundleVersion)"
-          ((BUILD_NUMBER+=1))
-
-          /usr/bin/defaults write $info_plist CFBundleShortVersionString $version_number
-          /usr/bin/defaults write $info_plist CFBundleVersion $build_number
-          plutil -convert xml1 $info_plist_ext
-
-          echo "Released $VERSION_NUMBER"
-          echo "Incremented build number to $BUILD_NUMBER"
           git add .
           git commit -m "bump version"
           git push origin HEAD
