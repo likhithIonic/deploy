@@ -18,14 +18,23 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Test
-      uses: skx/github-action-tester@master
-      with:
-        script: .github/xcode-version-increment.sh
-      # - uses: yanamura/ios-bump-version@v1
-      #   with:
-      #     version: 1.1.0
-      #     # build-number: ${{github.run_number}}
-      #     # project-path: ./ios #Example for React Native project
+      run: |
+        #!/bin/sh
+        INFO_PLIST="ios/App/App/Info.plist"
+        INFO_PLIST_EXT="${INFO_PLIST}.plist"
+        BUILD_NUMBER="$(defaults read $INFO_PLIST CFBundleVersion)"
+        ((BUILD_NUMBER+=1))
+        ls -l
+        VERSION_NUMBER=1.0.$BUILD_NUMBER
+        sed write $INFO_PLIST CFBundleShortVersionString $VERSION_NUMBER
+        defaults write $INFO_PLIST CFBundleVersion $BUILD_NUMBER
+        plutil -convert xml1 $INFO_PLIST_EXT
+
+        echo "Released $VERSION_NUMBER"
+        echo "Incremented build number to $BUILD_NUMBER"
+
+
+
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: bump version
