@@ -32,8 +32,8 @@ jobs:
           build_number="$(defaults read $INFO_PLIST CFBundleVersion)"
           ((BUILD_NUMBER+=1))
 
-          defaults write $info_plist CFBundleShortVersionString $version_number
-          defaults write $info_plist CFBundleVersion $build_number
+          /usr/bin/defaults write $info_plist CFBundleShortVersionString $version_number
+          /usr/bin/defaults write $info_plist CFBundleVersion $build_number
           plutil -convert xml1 $info_plist_ext
 
           echo "Released $VERSION_NUMBER"
