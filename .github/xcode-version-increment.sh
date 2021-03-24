@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-INFO_PLIST="${HOME}/cloneapps/DTAS/ios/App/App/Info"
+INFO_PLIST="ios/App/App/Info"
 INFO_PLIST_EXT="${INFO_PLIST}.plist"
 BUILD_NUMBER="$(defaults read $INFO_PLIST CFBundleVersion)"
 ((BUILD_NUMBER+=1))
