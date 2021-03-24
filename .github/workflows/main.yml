@@ -5,8 +5,8 @@ on:
   push:
     branches: [ master ]
   
-  schedule:
-    - cron:  '1 22 * * *'
+#   schedule:
+#     - cron:  '1 22 * * *'
 
     # * is a special character in YAML so you have to quote this string
 
