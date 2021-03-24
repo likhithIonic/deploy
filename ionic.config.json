@@ -1,0 +1,7 @@
+{
+  "name": "DTAS",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
