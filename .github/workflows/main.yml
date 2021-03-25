@@ -24,9 +24,9 @@ jobs:
 
 
 
-    - uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: bump version
+     - uses: stefanzweifel/git-auto-commit-action@v4
+       with:
+         commit_message: bump version
 
   # build-ios-appstore-test:
   #   runs-on: ubuntu-latest
