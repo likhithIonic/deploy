@@ -32,9 +32,9 @@ jobs:
 
         echo "Released $VERSION_NUMBER"
         echo "Incremented build number to $BUILD_NUMBER"
-        git add .
-        git commit -m "bump"
-        git push
+        # git add .
+        # git commit -m "bump"
+        # git push
 
 
 
