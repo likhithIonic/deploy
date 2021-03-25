@@ -14,7 +14,7 @@ on:
 jobs:
   # This will build an IPA & Upload the artifact in iOS.zip
   increment-version:
-    runs-on: ubuntu-16.04
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@master
     - name: Test
