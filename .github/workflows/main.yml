@@ -20,7 +20,9 @@ jobs:
 
     - name: Test
       run: |
-        cd ios/
+        pwd
+        cd ios/App/App.xcodeproj
+
         agvtool new-marketing-version 1.0.9
 
 
