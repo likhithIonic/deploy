@@ -19,7 +19,6 @@ jobs:
     - uses: actions/checkout@master
     - name: Test
       run: |
-        #!/bin/sh
         INFO_PLIST="ios/App/App/Info.plist"
         INFO_PLIST_EXT="${INFO_PLIST}.plist"
         echo $PATH
