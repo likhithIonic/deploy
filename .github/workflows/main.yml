@@ -16,14 +16,11 @@ jobs:
   increment-version:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
-         with:
-           token: ${{ secrets.GITHUB_TOKEN }}
-     - uses: actions/checkout@master
-     - name: Test
-       uses: skx/github-action-tester@master
-       with:
-         script: .github/xcode-version-increment.sh
+    - uses: actions/checkout@master
+
+    - name: Test
+      run: |
+      PlistBuddy --help
 
 
 
