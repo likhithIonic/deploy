@@ -20,7 +20,7 @@ jobs:
 
     - name: Test
       run: |
-        agvtool
+        agvtool new-marketing-version 1.0.9
 
 
 
